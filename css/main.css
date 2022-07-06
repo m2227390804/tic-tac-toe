@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    width:100%;
+    height:100%;
+    background:#F5DADD;
+    font-family: "Comic Sans MS";
+}
+li,
+ul {
+    list-style: none;
+}
+.contanier {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+.contanier span {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.contanier h1{
+    width:100%;
+    height:88px;
+    line-height: 88px;
+    background:#BFD7E2;
+    text-align: center;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+#cishu {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    top: 15px;
+}
+#cishu p {
+    display: inline-block;
+}
+.contanier ul {
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+.contanier ul li {
+    width: 98px;
+    height: 98px;
+    border: 1px solid #F5E2E4;
+    color: #F5E2E4;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 100px;
+    background:#fff;
+}
+#restar {
+    padding: 10px;
+    color: #fff;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    background:#F5E2E4;
+}
+#alterBox {
+    width: 200px;
+    height: 140px;
+    background: rgba(191, 216, 226, 0.9);
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -38px;
+    margin-left: -100px;
+    border: 2px solid #BFD7E2;
+    box-shadow: 1px 1px 21px #BFD7E2;
+}
+#alterBox .textBox {
+    width: 100%;
+    padding: 10% 0;
+    text-align: center;
+}
+#alterBox .button {
+    padding: 5px;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    cursor: pointer;
+    width: 160px;
+    text-align: center; 
+    margin-top: 5px;
+    font-size: 15px;
+}
+

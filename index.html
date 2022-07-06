@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Tic Tac Toe 井字棋</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <div class="contanier">
+        <h1 class="title">Tic Tac Toe（井字棋）</h1>
+        <div id="cishu">
+            <p>第 </p>
+            <p>0</p>
+            <p> 手</p>
+        </div>
+        <span></span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span></span>
+        <div id="alterBox" style="display: none;">
+            <div class="textBox"></div>
+            <div class="button">再玩一局<br>(Play the game again)</div>
+        </div>
+        <div id="restar">重 新 开 始<br>(Start all over again)</div>
+    </div>
+    <script src="jquery.min.183.js"></script>
+    <script>
+        var map = new Array();
+        for (var i = 0; i < 3; i++) {
+            map[i] = new Array();
+        }
+        click();
+        function click() {
+            var a = 1;
+            var index;
+            var result = "";
+            var cnt=0;
+            $("#cishu p:nth-child(2)").text(cnt);
+            $(".contanier ul li").on("click", function () {//click
+                ++cnt;
+                if (a == 1) {
+                    $(this).text("X");
+                    a = 0;
+                } else if (a == 0) {
+                    $(this).text("O");
+                    a = 1;
+                }
+                $(this).off("click");
+                index = $(this).index();
+                map[Math.floor(index / 3)][index % 3] = $(this).text();
+                if (tell()&&result!="") {
+                    $("#alterBox .textBox").text(result+" is Winner !");
+                    $("#alterBox").css("display","block");
+                    $(".contanier ul li").off("click");
+                }
+                if(cnt==9&&result==""){
+                    $("#alterBox .textBox").text("平局 dogfall");
+                    $("#alterBox").css("display","block");
+                    $(".contanier ul li").off("click");
+                }
+                $("#cishu p:nth-child(2)").text(cnt);
+            });
+
+            function tell() {//判断输赢
+                var i = 0;
+                for (i = 0; i < 3; i++) {
+                    if (map[i][0] != null && map[i][0] == map[i][1] && map[i][1] == map[i][2]) {
+                        result = map[i][0];
+                        return true;
+                    }
+                }
+                for (i = 0; i < 3; i++) {
+                    if (map[0][i] != null && map[0][i] == map[1][i] && map[1][i] == map[2][i]) {
+                        result = map[0][i];
+                        return true;
+                    }
+                }
+                if (map[0][0] != null && map[0][0] == map[1][1] && map[1][1] == map[2][2]) {
+                    result = map[0][0];
+                    return true;
+                }
+                if (map[2][0] != null && map[2][0] == map[1][1] && map[1][1] == map[0][2]) {
+                    result = map[2][0];
+                    return true;
+                }
+                return false;
+            }
+        }
+        $("#restar,#alterBox .button").on("click", function () {
+            $(".contanier ul li").empty();
+            for (var i = 0; i < 3; i++) {
+                map[i] = [];
+            }
+            $("#alterBox .textBox").empty();
+            $("#alterBox").css("display","none");
+            click();
+        });
+    </script>
+</body>
+</html>
